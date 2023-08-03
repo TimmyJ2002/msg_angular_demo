@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, of, tap} from "rxjs";
 import {User} from "../models/user";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   url:string = "http://localhost:8080/users";
+  url2:string = "http://localhost:8080/users/update/"
 
   userList$:BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   userList:User[] = [
@@ -25,6 +26,11 @@ export class UserService {
 
   getUsers(): Observable<User[]>{
     return this.userList$.asObservable();
+  }
+
+  updateUser(user: User): Observable<User>{
+    //const params = new HttpParams().set('userId', user.id.toString());
+    return this.http.put<User>(`${this.url2}${user.id}`, user);
   }
 
   constructor(

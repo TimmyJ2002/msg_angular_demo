@@ -21,5 +21,6 @@ export class UserListComponent implements OnInit {
 
   editUser(userToEdit: User) {
     userToEdit.username = userToEdit.username + 1;
+    this.userService.updateUser(userToEdit).subscribe();
   }
 }
