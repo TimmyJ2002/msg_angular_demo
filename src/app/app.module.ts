@@ -6,6 +6,8 @@ import {UserModule} from './user/user.module';
 import {RouterModule, Routes} from '@angular/router';
 import {UserListComponent} from './user/components/user-list/user-list.component';
 import {UserDetailsComponent} from './user/components/user-details/user-details.component';
+import { DonationListComponent } from './donation/components/donation-list/donation-list.component';
+import { DonationComponent } from './donation/components/donation-details/donation.component';
 
 const routes: Routes = [
   { path: 'users', component: UserListComponent},
@@ -16,7 +18,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DonationListComponent,
+    DonationComponent
   ],
   imports: [
     BrowserModule,
