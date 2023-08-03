@@ -7,7 +7,7 @@ import {User} from './user/models/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'untitled5';
+  title = 'Donation Manager';
 
   users: User[] = [
     new User(1, 'user1', 'user_email1@yahoo.com', '1234'),

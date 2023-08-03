@@ -33,7 +33,5 @@ export class UserService {
     return this.http.put<User>(`${this.url2}${user.id}`, user);
   }
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 }

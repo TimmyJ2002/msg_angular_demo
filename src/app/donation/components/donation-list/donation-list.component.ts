@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Donation} from "../../models/donation";
 
 @Component({
   selector: 'app-donation-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DonationListComponent implements OnInit {
 
+  donationList: Donation[];
+
   constructor() { }
 
   ngOnInit(): void {
+    //TODO: ngOnInit  for Donations something idk for backend connection
   }
 
 }

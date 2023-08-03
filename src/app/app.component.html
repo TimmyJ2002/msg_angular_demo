@@ -1,6 +1,14 @@
+<nav>
+  <a  routerLink="/users" routerLinkActive="active" ariaCurrentWhenActive="page">Users</a>
+  <a [routerLink]="['/users', 1]" routerLinkActive="active" ariaCurrentWhenActive="page">User Details</a>
+  <a  routerLink="/donations" routerLinkActive="active" ariaCurrentWhenActive="page">Donation</a>
+</nav>
+<router-outlet></router-outlet>
+
 <div>
   <h1>
     Welcome to {{title}}
   </h1>
   <app-user-list></app-user-list>
 </div>
+
