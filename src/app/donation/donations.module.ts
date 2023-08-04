@@ -5,8 +5,6 @@ import {DonationListComponent} from "./components/donation-list/donation-list.co
 import {DonationDetailComponent} from "./components/donation-details/donation-detail.component";
 import {HttpClientModule} from "@angular/common/http";
 
-
-
 @NgModule({
   declarations: [
       DonationListComponent,
