@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Donation} from "../../models/donation";
+import {DonationService} from "../../services/donation.service";
 
 @Component({
   selector: 'app-donation-list',
@@ -10,10 +11,11 @@ export class DonationListComponent implements OnInit {
 
   donationList: Donation[];
 
-  constructor() { }
+  constructor(private donationService:DonationService) { }
 
   ngOnInit(): void {
     //TODO: ngOnInit  for Donations something idk for backend connection
+      this.donationService.getDonations().subscribe((donations ) => this.donationList= donations);
   }
 
 }

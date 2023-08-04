@@ -7,14 +7,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {UserListComponent} from './user/components/user-list/user-list.component';
 import {UserDetailsComponent} from './user/components/user-details/user-details.component';
 import { DonationListComponent } from './donation/components/donation-list/donation-list.component';
-import { DonationComponent } from './donation/components/donation-details/donation.component';
-
-const routes: Routes = [
-  { path: 'users', component: UserListComponent},
-  { path: 'users/:id', component: UserDetailsComponent},
-  { path: '', redirectTo: 'users', pathMatch: 'full'},
-  { path: '**', redirectTo: 'users', pathMatch: 'full'}
-];
+import { DonationDetailComponent } from './donation/components/donation-details/donation-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { UserRoutingModule } from './user/user-routing.module';
+import { DonationRoutingModule } from './donation/donation-routing.module';
+import {DonationsModule} from "./donation/donations.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButton} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -25,7 +24,9 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     UserModule,
-    RouterModule.forRoot(routes)
+    DonationsModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
 
   ],
   providers: [],

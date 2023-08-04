@@ -1,0 +1,33 @@
+<!--<label for="name">Name:</label>
+<input id="name" type="text" [formControl]="firstName">
+<p>Value {{firstName.value}}</p>-->
+
+<form [formGroup]="registerForm" (ngSubmit)="onSave()">
+  <div>
+  <label for="firstName">First Name:</label>
+  <input id="firstName" type="text" formControlName="firstName">
+  </div>
+
+  <div>
+  <label for="lastName">Last Name:</label>
+  <input id="lastName" type="text" formControlName="lastName">
+  </div>
+
+  <div>
+  <label for="email">Email:</label>
+  <input id="email" type="text" formControlName="email">
+  </div>
+
+  <div>
+  <label for="phoneNumber">Phone Number:</label>
+  <input id="phoneNumber" type="text" formControlName="phoneNumber">
+  </div>
+
+  <div>
+  <label for="roles">Role:</label>
+  <input id="roles" type="text" formControlName="roles">
+  </div>
+
+  <p>Complete the form to enable button</p>
+  <button type="submit" [disabled]=!registerForm.valid mat-fab aria-label="Example icon button with a bookmark icon"><mat-icon>Save</mat-icon></button>
+</form>

@@ -1,3 +1,7 @@
 <div>
-    ID: {{donation.id}} {{donation.amount}} {{donation.currency}}
+    <ul>
+    <li>{{donation.id}}</li>
+  <li>Amount: {{donation.amount}} {{donation.currency}}</li>
+  <li>Donated By: {{donation.createdBy.username}} {{donation.createdBy.email}}</li>
+    </ul>
 </div>
