@@ -17,9 +17,7 @@ import {MatButton} from "@angular/material/button";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DonationListComponent,
-    DonationComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
