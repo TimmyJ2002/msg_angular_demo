@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, of, tap} from "rxjs";
 import {User} from "../models/user";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +18,14 @@ export class UserService {
   ]
 
   loadUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.url).pipe(
+    console.log(localStorage.getItem("token"));
+    var header = {
+      headers: new HttpHeaders()
+        .set('Authorization', localStorage.getItem("token")??''
+        )}
+    return this.http.get<User[]>(this.url, header).pipe(
       tap(users => this.userList$.next(users))
-    )
-
+    );
   }
 
   getUsers(): Observable<User[]>{

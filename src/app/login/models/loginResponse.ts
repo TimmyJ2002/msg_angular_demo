@@ -1,6 +1,6 @@
 export class LoginResponse{
   constructor(
-    public token: string,
+    public accessToken: string,
     public id: number,
     public username: string,
     public email: string,

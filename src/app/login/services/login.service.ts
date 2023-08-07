@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {BehaviorSubject, Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {LoginRequest} from "../models/loginRequest";
 import {LoginResponse} from "../models/loginResponse";
 
@@ -17,8 +17,14 @@ export class LoginService {
     private http: HttpClient
   ) { }
 
-  login(loginRequest: LoginRequest){
+  login(loginRequest: LoginRequest):void{
     console.log(loginRequest);
-    return this.http.post<LoginResponse>(this.url, loginRequest);
+     this.http.post<LoginResponse>(this.url, loginRequest).subscribe((loginResponse:LoginResponse) =>{
+       console.log(loginResponse);
+      localStorage.setItem('token', loginResponse.accessToken);
+      localStorage.setItem('role', "admin");//loginResponse.roles
+    })
   }
+
+
 }

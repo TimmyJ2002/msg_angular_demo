@@ -8,7 +8,17 @@ import {DonationDetailComponent} from "./donation/components/donation-details/do
 import {UserLoginComponent} from "./login/components/user-login.component";
 
 const routes: Routes = [
-    { path: 'login', component: UserLoginComponent},
+    {
+      path: 'login',
+      component: UserLoginComponent,
+      /*children: [
+        {path: 'home', component: HomeCoomp, canActivate: [LoggedInGuard],
+          children: [
+            {}
+          ]
+        },
+      ]*/
+    },
     { path: '', redirectTo: 'users', pathMatch: 'full'},
     { path: '**', redirectTo: 'users', pathMatch: 'full'},
 

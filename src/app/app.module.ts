@@ -18,6 +18,9 @@ import {UserLoginComponent} from "./login/components/user-login.component";
 import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
 import {LoginModule} from "./login/login.module";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {Interceptor} from "./util/interceptors/interceptor";
+import {RoleGuard} from "./role-guard";
 
 
 @NgModule({
@@ -34,10 +37,14 @@ import {LoginModule} from "./login/login.module";
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:Interceptor, multi:true},
+    RoleGuard
+  ],
+  bootstrap: [AppComponent,]
 })
 export class AppModule { }

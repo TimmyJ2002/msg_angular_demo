@@ -21,6 +21,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   onLogin() {
+
     const password = this.loginForm.get('password')?.value;
     const username = this.loginForm.get('username')?.value;
     console.log(username);
@@ -28,7 +29,7 @@ export class UserLoginComponent implements OnInit {
 
     const loginRequest = new LoginRequest(username, password);
 
-    this.loginService.login(loginRequest).subscribe((data) => console.log(data));
+    this.loginService.login(loginRequest);
 
   }
 }
