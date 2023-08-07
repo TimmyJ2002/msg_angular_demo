@@ -13,18 +13,28 @@ import { UserRoutingModule } from './user/user-routing.module';
 import { DonationRoutingModule } from './donation/donation-routing.module';
 import {DonationsModule} from "./donation/donations.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatButtonModule} from "@angular/material/button";
+import {UserLoginComponent} from "./login/components/user-login.component";
+import {MatIconModule} from "@angular/material/icon";
+import {ReactiveFormsModule} from "@angular/forms";
+import {LoginModule} from "./login/login.module";
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
     UserModule,
     DonationsModule,
-      AppRoutingModule,
-      BrowserAnimationsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    LoginModule
 
   ],
   providers: [],
